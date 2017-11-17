@@ -3,12 +3,12 @@ const tweetMaxLength = 140;
 let createTweetElement = function(tweet) {
   return $(`
               <article class="tweet">
-                <header><img src="${tweet.user.avatars.small}">
-                  <h2>${tweet.user.name}</h2><span>${tweet.user.handle}</span>
+                <header><img src="${escape(tweet.user.avatars.small)}">
+                  <h2>${escape(tweet.user.name)}</h2><span>${escape(tweet.user.handle)}</span>
                 </header>
-                <p>${tweet.content.text}</p>
+                <p>${escape(tweet.content.text)}</p>
                 <footer>
-                  <P>${tweet.created_at} days ago</P>
+                  <P>${escape(tweet.created_at)} days ago</P>
                   <ul>
                     <li> <img src="/images/comment.png"> </li>
                     <li> <img src="/images/retweet.png"> </li>
@@ -17,6 +17,12 @@ let createTweetElement = function(tweet) {
                 </footer>
               </article>`
             )
+}
+
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 }
 
 let renderTweets = function(tweets) {
@@ -59,7 +65,7 @@ let submitNewTweet = function() {
               }
     },
     error: function() {
-      alert('Tweet cannot be empty!');
+      alert('Tweet cannt be empty or exceed 140 words!');
     }
     });
   });
