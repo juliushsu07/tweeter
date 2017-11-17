@@ -1,0 +1,84 @@
+section.tweets article {
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: lightgrey;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+
+section.tweets article > header {
+  height: 100px;
+  padding: 10px;
+  background: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  opacity: 0.7;
+}
+
+section.tweets article header > h2 {
+  margin: 0;
+  padding-left: 10px;
+  margin-top: 10px;
+  float: left;
+}
+
+section.tweets article header > img {
+  height: 75px;
+  width: 75px;
+  margin-right: 10px;
+  float: left;
+}
+
+section.tweets article header > span {
+  float: right;
+  padding-top: 10px;
+}
+
+section.tweets article>p {
+  background: white;
+  padding: 40px 20px 40px 20px;
+  margin: 0;
+  border-bottom: 1px solid;
+  border-color: lightgrey;
+}
+
+section.tweets article footer {
+  padding: 10px;
+  height: 70px;
+}
+
+section.tweets article footer ul {
+  list-style-type: none;
+  float: right;
+  visibility: hidden;
+}
+
+section.tweets article footer > p {
+  float: left;
+}
+
+section.tweets article footer ul li {
+  display: inline-block;
+}
+
+section.tweets article footer ul li img {
+  height: 25px;
+  width: 25px;
+}
+
+/*
+ * Hover
+ */
+
+section.tweets:hover {
+  border-color: black;
+}
+
+section.tweets article:hover header {
+  opacity: 1;
+}
+
+section.tweets article:hover footer ul {
+  visibility: visible;
+}
