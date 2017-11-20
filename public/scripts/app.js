@@ -1,4 +1,5 @@
-const tweetMaxLength = 140;
+// serialized adds 5 characters "text=" to the max length of the tweet.
+const tweetSerializedMaxLength = 145;
 
 let createTweetElement = function(tweet) {
   return $(`
@@ -51,23 +52,24 @@ let submitNewTweet = function() {
 
     let text = $(this).serialize();
 
-    $.ajax({
-    url: '/tweets',
-    method: 'POST',
-    data: text,
-    success: function(data) {
-              if(text !== null && text !== "" && text.length <= tweetMaxLength){
+    if(text.length > tweetSerializedMaxLength){
+
+      alert('Tweet cannt exceed 140 words!');
+      return;
+    }
+      $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: text,
+      success: function(data) {
                 renderTweets(data);
                 $('.tweets').empty();
                 loadTweets();
-              } else{
-                alert('Tweet cannt be empty or exceed 140 words!');
-              }
-    },
-    error: function() {
-      alert('Tweet cannt be empty or exceed 140 words!');
-    }
-    });
+      },
+      error: function(emptyErr) {
+        alert('Tweet cannt be empty!', emptyErr);
+      }
+      });
   });
 }
 
