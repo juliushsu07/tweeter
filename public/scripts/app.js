@@ -9,7 +9,7 @@ let createTweetElement = function(tweet) {
                 </header>
                 <p>${escape(tweet.content.text)}</p>
                 <footer>
-                  <P>${escape(tweet.created_at)} days ago</P>
+                  <P>${escape(moment(tweet.created_at).fromNow())}</P>
                   <ul>
                     <li> <img src="/images/comment.png"> </li>
                     <li> <img src="/images/retweet.png"> </li>
