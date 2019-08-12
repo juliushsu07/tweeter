@@ -1,4 +1,4 @@
-Tweeter Clone
+Tweeter Clone App
 =====================
 
 Tweeter Clone is a simple, single-page Twitter.
